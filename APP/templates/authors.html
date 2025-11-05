@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Authors</title>
+</head>
+<body>
+    <h1>Authors List</h1>
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/books">Books</a> |
+        <a href="/authors">Authors</a>
+    </nav>
+    
+    {% if authors %}
+        <ul>
+            {% for author in authors %}
+                <li>{{ author['name'] }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No authors found in the database.</p>
+    {% endif %}
+
+</body>
+</html>
