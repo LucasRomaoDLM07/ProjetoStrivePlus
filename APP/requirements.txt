@@ -1,0 +1,4 @@
+flask==2.2.5
+gunicorn==21.2.0
+requests==2.32.0 
+pymysql
