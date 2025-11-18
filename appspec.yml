@@ -1,9 +1,15 @@
 version: 0.0
 os: linux
-
 files:
-  - source: /
+  - source: APP
     destination: /home/ec2-user/deploy/myapp
+
+permissions:
+  - object: /home/ec2-user/deploy/myapp
+    pattern: "**"
+    owner: ec2-user
+    group: ec2-user
+    mode: 755
 
 hooks:
   BeforeInstall:
