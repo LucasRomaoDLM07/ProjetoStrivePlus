@@ -1,9 +1,17 @@
-output "public_subnet_id" {
-  value = aws_subnet.public_2.id
+output "public_subnet_id-1a" {
+  value = aws_subnet.public_1a.id
 }
 
-output "private_subnet_id" {
-  value = aws_subnet.private_2.id
+output "public_subnet_id-1b" {
+  value = aws_subnet.public_1b.id
+}
+
+output "private_subnet_id-1a" {
+  value = aws_subnet.private_1a.id
+}
+
+output "private_subnet_id-1b" {
+  value = aws_subnet.private_1b.id
 }
 
 output "nat_gateway_id" {

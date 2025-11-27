@@ -9,7 +9,3 @@ output "ecs_cluster" {
 output "ecs_service" {
   value = aws_ecs_service.service.name
 }
-
-output "task_definition" {
-  value = aws_ecs_task_definition.task.arn
-}

@@ -1,5 +1,5 @@
 resource "aws_security_group" "default_lab_sg" {
-  name        = "default-lab-sg"
+  name        = "default-nextgenz-sg"
   description = "Security Group padrao para laboratorio"
   vpc_id      = var.vpc_id
 
