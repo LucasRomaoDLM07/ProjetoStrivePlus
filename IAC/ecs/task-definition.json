@@ -1,0 +1,95 @@
+{
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:448506098935:task-definition/nextgenz-task:2",
+    "containerDefinitions": [
+        {
+            "name": "nextgenz-container",
+            "image": "448506098935.dkr.ecr.us-east-1.amazonaws.com/ecr-nextgenz:latest",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "containerPort": 5000,
+                    "hostPort": 5000,
+                    "protocol": "tcp",
+                    "name": "nextgenz-container-5000-tcp"
+                }
+            ],
+            "essential": true,
+            "environment": [
+                {
+                    "name": "DB_NAME",
+                    "value": "nextgenz"
+                },
+                {
+                    "name": "DB_HOST",
+                    "value": "10.0.2.159"
+                },
+                {
+                    "name": "DB_USER",
+                    "value": "app_user"
+                },
+                {
+                    "name": "DB_PASSWORD",
+                    "value": "SenhaForte123!"
+                }
+            ],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/nextgenz",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            },
+            "systemControls": []
+        }
+    ],
+    "family": "nextgenz-task",
+    "taskRoleArn": "arn:aws:iam::448506098935:role/LabRole",
+    "executionRoleArn": "arn:aws:iam::448506098935:role/LabRole",
+    "networkMode": "awsvpc",
+    "revision": 2,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE",
+        "MANAGED_INSTANCES"
+    ],
+    "requiresCompatibilities": [
+        "EC2"
+    ],
+    "cpu": "256",
+    "memory": "512",
+    "registeredAt": "2025-11-27T18:15:34.759000+00:00",
+    "registeredBy": "arn:aws:sts::448506098935:assumed-role/voclabs/user3847699=melhadomaiav@gmail.com"
+}
