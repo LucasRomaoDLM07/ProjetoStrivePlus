@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Autor - {{ author.name }}{% endblock %}
+
+{% block content %}
+<section class="author-detail">
+    <img class="author-photo" src="{{ author.photo_url }}" alt="{{ author.name }}">
+
+    <h1>{{ author.name }}</h1>
+
+    <p class="author-bio">
+        {{ author.bio }}
+    </p>
+
+    <a href="/authors" class="btn">← Voltar</a>
+</section>
+{% endblock %}

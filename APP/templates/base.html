@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}NextGenz Library{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+
+<header class="header">
+    <h1 class="logo">NextGenz Library</h1>
+
+    <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/books">Livros</a>
+        <a href="/authors">Autores</a>
+    </nav>
+</header>
+
+<main class="content">
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="footer">
+    © 2025 NextGenz Library — by Strive Plus
+</footer>
+
+</body>
+</html>

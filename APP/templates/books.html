@@ -1,26 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Books</title>
-</head>
-<body>
-    <h1>Books List</h1>
-    <nav>
-        <a href="/">Home</a> |
-        <a href="/books">Books</a> |
-        <a href="/authors">Authors</a>
-    </nav>
-    
-    {% if books %}
-        <ul>
-            {% for book in books %}
-                <li>{{ book['title'] }} (Author: {{ book['name'] }})</li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No books found in the database.</p>
-    {% endif %}
-    
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Livros{% endblock %}
+
+{% block content %}
+
+<h2 class="section-title">Todos os Livros</h2>
+
+<div class="grid">
+    {% for book in books %}
+    <div class="card">
+        <img src="{{ book.cover_url }}" alt="{{ book.title }}">
+        
+        <h3 class="card-title">{{ book.title }}</h3>
+        <p class="card-subtitle">{{ book.author_name }}</p>
+
+        <a href="/book/{{ book.id }}" class="details-btn">Ver detalhes</a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -77,6 +77,7 @@ resource "aws_security_group" "ecs_sg" {
 ##############################################
 # LAUNCH TEMPLATE
 ##############################################
+
 resource "aws_launch_template" "ecs_lt" {
   name_prefix   = "nextgenz-lt-"
   image_id      = data.aws_ssm_parameter.ecs_ami.value
@@ -87,20 +88,12 @@ resource "aws_launch_template" "ecs_lt" {
     name = "LabInstanceProfile"
   }
 
-  network_interfaces {
-    associate_public_ip_address = false
-    security_groups             = [aws_security_group.ecs_sg.id]
-  }
+   vpc_security_group_ids = [aws_security_group.ecs_sg.id]
 
   # CORREÇÃO IMPORTANTE: USER DATA COMPLETO
- user_data = base64encode(<<-EOF
+user_data = base64encode(<<-EOF
 #!/bin/bash
-set -xe
 echo "ECS_CLUSTER=${aws_ecs_cluster.cluster.name}" > /etc/ecs/ecs.config
-sudo yum remove -y ecs-init
-sudo yum install -y ecs-init
-sudo systemctl enable --now ecs
-sudo systemctl restart ecs
 EOF
 )
 }

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}{{ book.title }}{% endblock %}
+
+{% block content %}
+
+<div class="detail-box">
+
+    <img class="detail-cover" src="{{ book.cover_url }}" alt="{{ book.title }}">
+
+    <div class="detail-info">
+        <h2>{{ book.title }}</h2>
+        <h3>{{ book.author_name }}</h3>
+        <p>{{ book.description }}</p>
+
+        <a href="/books" class="btn">← Voltar aos livros</a>
+    </div>
+
+</div>
+
+{% endblock %}

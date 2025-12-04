@@ -1,17 +1,44 @@
+{% extends "base.html" %}
+{% block title %}NextGenz Library{% endblock %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Library Home</title>
-</head>
-<body>
-    <h1>Welcome to the Library</h1>
-    <nav>
-        <a href="/">Home</a> |
-        <a href="/books">Books</a> |
-        <a href="/authors">Authors</a>
-    </nav>
-    <p>This is a simple library management system.</p>
-</body>
-</html>
+{% block content %}
+
+<section class="hero" style="
+    background-image: url('https://ims.com.br/wp-content/uploads/2020/05/1200-organizar-biblioteca.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 350px;">
+
+</section>
+
+<section class="featured">
+    <h2>Destaque da Semana</h2>
+            <h3>1984 — George Orwell</h3>
+            <p>Uma das maiores obras distópicas de todos os tempos.</p>
+            <a href="/book/1">Ver detalhes</a>
+        </div>
+    </div>
+</section>
+
+<section class="quick-options">
+    <h2>Comece por aqui</h2>
+
+    <div class="grid">
+        <div class="card">
+            <h3>Livros Populares</h3>
+            <p>Veja os livros mais acessados da semana.</p>
+        </div>
+
+        <div class="card">
+            <h3>Autores Famosos</h3>
+            <p>Conheça detalhes dos maiores escritores.</p>
+        </div>
+
+        <div class="card">
+            <h3>Recomendações</h3>
+            <p>Sugestões personalizadas para você.</p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

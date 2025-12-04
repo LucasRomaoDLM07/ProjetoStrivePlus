@@ -1,26 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Authors</title>
-</head>
-<body>
-    <h1>Authors List</h1>
-    <nav>
-        <a href="/">Home</a> |
-        <a href="/books">Books</a> |
-        <a href="/authors">Authors</a>
-    </nav>
-    
-    {% if authors %}
-        <ul>
-            {% for author in authors %}
-                <li>{{ author['name'] }}</li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No authors found in the database.</p>
-    {% endif %}
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block title %}Autores{% endblock %}
+
+{% block content %}
+
+<h2 class="section-title">Autores</h2>
+
+<div class="grid">
+    {% for author in authors %}
+    <div class="card">
+        <img src="{{ author.photo_url }}" alt="{{ author.name }}">
+
+        <h3 class="card-title">{{ author.name }}</h3>
+
+        <p class="card-subtitle">
+            {{ author.bio | default("Biografia não disponível") | truncate(90, True, "...") }}
+        </p>
+
+        <a class="details-btn" href="/author/{{ author.id }}">Ver detalhes</a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
